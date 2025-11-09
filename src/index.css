@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ================================
+   Reset & Grundlagen
+   ================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-gold: #D4A574;
+    --dark-burgundy: #4A0E0E;
+    --deep-green: #0F3A2A;
+    --parchment: #F9F6F0;
+    --black-ink: #1A1A1A;
+    --border-gold: #B8935F;
+    --shadow-dark: rgba(26, 26, 26, 0.3);
+    --accent-red: #8B0000;
+}
+
+html, body {
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Crimson Text', Georgia, serif;
+    background: linear-gradient(135deg, #2C1810 0%, #1A0F08 50%, #0F1F1A 100%);
+    color: var(--parchment);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Ornamentaler Hintergrund */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(212, 165, 116, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ================================
+   Header - Gotische Pracht
+   ================================ */
+#header {
+    background: linear-gradient(180deg, var(--dark-burgundy) 0%, rgba(74, 14, 14, 0.95) 100%);
+    border-bottom: 4px solid var(--primary-gold);
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px var(--shadow-dark);
+    z-index: 10;
+}
+
+#header::before,
+#header::after {
+    content: '❦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    opacity: 0.7;
+}
+
+#header::before { left: 2rem; }
+#header::after { right: 2rem; }
+
+#header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    letter-spacing: 0.15em;
+    margin: 0;
+}
+
+.header-subtitle {
+    font-size: 1.1rem;
+    color: rgba(212, 165, 116, 0.8);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* ================================
+   Container & Layout
+   ================================ */
+#top-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+/* ================================
+   Eingabebereich
+   ================================ */
+#top-form {
+    background: linear-gradient(135deg, rgba(249, 246, 240, 0.95) 0%, rgba(240, 235, 225, 0.95) 100%);
+    border: 2px solid var(--border-gold);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+}
+
+#top-form::before {
+    content: '§';
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    background: var(--parchment);
+    padding: 0 10px;
+    font-size: 1.5rem;
+    color: var(--dark-burgundy);
+    font-weight: bold;
+}
+
+#top-input {
+    flex: 1;
+    min-width: 300px;
+    padding: 0.875rem 1.25rem;
+    font-size: 1.05rem;
+    font-family: 'Crimson Text', serif;
+    border: 2px solid var(--deep-green);
+    border-radius: 4px;
+    background: white;
+    color: var(--black-ink);
+    transition: all 0.3s ease;
+}
+
+#top-input:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+}
+
+#top-add {
+    padding: 0.875rem 2rem;
+    font-size: 1.05rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--dark-burgundy) 0%, #6B1515 100%);
+    color: var(--parchment);
+    border: 2px solid var(--primary-gold);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#top-add:hover {
+    background: linear-gradient(135deg, #6B1515 0%, var(--dark-burgundy) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* ================================
+   Tagesordnungsliste
+   ================================ */
+#top-tree {
+    list-style: none;
+    padding: 0;
+}
+
+#top-tree li {
+    background: linear-gradient(135deg, rgba(249, 246, 240, 0.95) 0%, rgba(240, 235, 225, 0.95) 100%);
+    border: 2px solid var(--border-gold);
+    border-left: 5px solid var(--dark-burgundy);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#top-tree li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+
+.top-row {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.top-number {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--dark-burgundy);
+    min-width: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.top-number::after {
+    content: '.';
+    position: absolute;
+    right: -5px;
+}
+
+.top-title {
+    font-size: 1.15rem;
+    color: var(--black-ink);
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.top-title[contenteditable]:hover {
+    background: rgba(212, 165, 116, 0.1);
+}
+
+.top-title[contenteditable]:focus {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 2px;
+    background: white;
+}
+
+/* Checkbox - Stilvolles Design */
+input[type="checkbox"] {
+    width: 1.5rem;
+    height: 1.5rem;
+    accent-color: var(--dark-burgundy);
+    cursor: pointer;
+}
+
+/* Action Buttons */
+.top-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary {
+    background: var(--deep-green);
+    color: var(--parchment);
+    border-color: var(--deep-green);
+}
+
+.btn-primary:hover {
+    background: #0A2A1F;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--dark-burgundy);
+    border-color: var(--dark-burgundy);
+}
+
+.btn-secondary:hover {
+    background: var(--dark-burgundy);
+    color: var(--parchment);
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+.btn-danger:hover {
+    background: var(--accent-red);
+    color: white;
+}
+
+/* Unterpunkte */
+#top-tree li > ul {
+    margin-top: 1rem;
+    padding-left: 2rem;
+    border-left: 3px dotted var(--primary-gold);
+}
+
+#top-tree li > ul > li {
+    background: rgba(249, 246, 240, 0.8);
+    border-left-color: var(--primary-gold);
+}
+
+/* ================================
+   Modal - Prachtvolle Darstellung
+   ================================ */
+#modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+#modal:not(.hidden) {
+    display: flex;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, var(--parchment) 0%, #F0EDE5 100%);
+    width: min(95%, 1200px);
+    max-height: 90vh;
+    border: 3px solid var(--primary-gold);
+    border-radius: 12px;
+    box-shadow:
+            0 20px 60px rgba(0,0,0,0.5),
+            inset 0 0 30px rgba(212, 165, 116, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-head {
+    background: linear-gradient(135deg, var(--dark-burgundy) 0%, #6B1515 100%);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--primary-gold);
+}
+
+#modal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--primary-gold);
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#close-modal {
+    background: transparent;
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#close-modal:hover {
+    background: var(--primary-gold);
+    color: var(--dark-burgundy);
+    transform: rotate(90deg);
+}
+
+#modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+    color: var(--black-ink);
+}
+
+/* ================================
+   Antrags-UI im Modal
+   ================================ */
+.antrags-ui {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.antrag-form {
+    background: white;
+    border: 2px solid var(--deep-green);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(200px, 250px) 1fr auto;
+    gap: 1rem;
+    align-items: start;
+}
+
+.antrag-form select,
+.antrag-form input,
+.antrag-form textarea {
+    padding: 0.75rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.antrag-form select:focus,
+.antrag-form input:focus,
+.antrag-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+}
+
+.antrag-form textarea {
+    grid-column: 1 / -1;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.character-counter {
+    grid-column: 1 / -1;
+    text-align: right;
+    font-size: 0.875rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Antragskarten */
+.antrag-card {
+    background: white;
+    border: 2px solid var(--border-gold);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.antrag-gestellt {
+    border-color: var(--deep-green);
+    background: linear-gradient(135deg, white 0%, #F5FFF5 100%);
+}
+
+.antrag-beschlossen {
+    border-color: var(--primary-gold);
+    background: linear-gradient(135deg, #FFFEF5 0%, #FFF9E5 100%);
+    position: relative;
+}
+
+.antrag-beschlossen::before {
+    content: '✓ BESCHLOSSEN';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-gold);
+    color: var(--dark-burgundy);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.antrag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+}
+
+.status-chip {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--deep-green);
+    color: white;
+}
+
+/* Abstimmungsbereich */
+.stimmen {
+    background: rgba(212, 165, 116, 0.1);
+    border: 1px solid var(--primary-gold);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stimmen input {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.stimmen label {
+    display: block;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--dark-burgundy);
+}
+
+/* Pro/Kontra Listen */
+.args-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.args-section h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--dark-burgundy);
+    border-bottom: 2px solid var(--primary-gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Nachträge */
+.nachtrag {
+    background: linear-gradient(135deg, #F0F8FF 0%, #E5F3FF 100%);
+    border-left: 4px solid #0077CC;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+.nachtrag .meta {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+/* Folgeantrag */
+.folgeantrag {
+    border-color: var(--accent-red);
+    border-style: dashed;
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
+@media (max-width: 768px) {
+    #header h1 {
+        font-size: 2rem;
+    }
+
+    #header::before,
+    #header::after {
+        display: none;
+    }
+
+    #top-page {
+        padding: 0 1rem;
+    }
+
+    .top-row {
+        grid-template-columns: auto auto 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .top-actions {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+    }
+
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .args-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================================
+   Animations
+   ================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#top-tree li {
+    animation: fadeIn 0.5s ease;
+}
+
+/* ================================
+   Print Styles
+   ================================ */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    #header {
+        background: none;
+        border-bottom: 2px solid black;
+    }
+
+    #header h1 {
+        color: black;
+        text-shadow: none;
+    }
+
+    #top-form,
+    .action-btn,
+    #close-modal {
+        display: none !important;
+    }
+
+    #top-tree li {
+        background: white;
+        border: 1px solid black;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+}

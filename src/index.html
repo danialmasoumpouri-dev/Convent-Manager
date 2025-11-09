@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Convent - Tagesordnung</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="../dist/index.js"></script>
+</head>
+<body>
+<header id="header">
+    <h1>⚔ Tagesordnung ⚔</h1>
+</header>
+
+<section id="top-page">
+    <form id="top-form">
+        <input id="top-input" placeholder="Neuer Tagesordnungspunkt" />
+        <button id="top-add" type="submit">Hinzufügen</button>
+    </form>
+
+    <ul id="top-tree" aria-label="Tagesordnung">
+        <!-- Dynamische TOPs -->
+    </ul>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <div class="modal-head">
+            <h2 id="modal-title">TOP</h2>
+            <button id="close-modal" aria-label="Schließen">×</button>
+        </div>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<!-- UI Store -->
+<div id="ui-store" style="display:none;"></div>
+</body>
+</html>
